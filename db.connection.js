@@ -1,5 +1,5 @@
 require("dotenv").config();
-const {PORT=4000, MONGODB_URI } = process.env;
+const {PORT, MONGODB_URI } = process.env;
 const mongoose = require("mongoose");
 
 mongoose.connect(MONGODB_URI, {
