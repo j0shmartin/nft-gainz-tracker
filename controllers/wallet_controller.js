@@ -40,7 +40,8 @@ router.get("/:walletid", async (req,res)=>{
 
 router.delete("/:walletid", async (req,res)=>{
     try {
-        foundWallet = await db.Wallet.findByIdAndDelete(req.params.walletid)
+        const walletToDelete= await db.Wallet.findByIdAndDelete(req.params.walletid);
+        const refTodDelete = await db.User.updateOne({_id:req.params.userid},{$pull:{wallets:req.params.walletid}});
         res.send("Deleted");
     } catch (error) {
         res.status(400).json(error);
