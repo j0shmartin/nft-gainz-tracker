@@ -29,6 +29,8 @@ app.use(function(req, res, next) {
   });
 
 app.use('/users',controllers.User)
+app.use('/auth',controllers.Auth)
+
 
 app.use('/users/:userid/wallets',controllers.Wallet)
 
