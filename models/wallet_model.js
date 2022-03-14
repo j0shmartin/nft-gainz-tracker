@@ -8,7 +8,8 @@ const walletSchema = new mongoose.Schema({
     address: {
         type: String,
         required: [true, 'come on...drop the addy']
-    }
+    },
+    
 });
 
 const Wallet = mongoose.model('Wallet', walletSchema);

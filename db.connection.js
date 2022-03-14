@@ -1,8 +1,8 @@
 require("dotenv").config();
-const URI = process.env.MONGODB_URI;
+const { PORT=4000 , MONGODB_URI } = process.env;
 const mongoose = require("mongoose");
 
-mongoose.connect(URI);
+mongoose.connect(MONGODB_URI);
 
 mongoose.connection
     .on("open", ()=> console.log("Your are connected to mongoose"))
