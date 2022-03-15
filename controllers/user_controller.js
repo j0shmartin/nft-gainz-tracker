@@ -28,7 +28,7 @@ router.get("/isAuth",verifyJWT, (req,res)=>{
 
 router.get("/:username",verifyJWT, async (req,res)=>{
     try {
-        res.json(await db.User.findOne({username: req.params.username}));
+        res.json(await db.User.findOne({username: req.params.username}).populate("wallets"));
     } catch (error){
         res.status(400).json(error);
         console.log(error);

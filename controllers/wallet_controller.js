@@ -22,7 +22,7 @@ router.post("/", async (req,res)=>{
                 new:true
             }
         );
-        res.json(foundUser.wallets);
+        res.json(foundUser.populate("wallets"));
     } catch (error){
         res.status(400).json(error)
         console.log(error)
